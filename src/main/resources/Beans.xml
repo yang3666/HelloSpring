@@ -4,8 +4,14 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-    <bean id="helloWorld" class="com.jy.HelloWorld">
-        <property name="message" value="Hello World!" />
+    <bean id="student" class="com.jy.Student">
+        <constructor-arg name="id" value="2"></constructor-arg>
+        <constructor-arg name="name" value="李四"></constructor-arg>
+        <constructor-arg name="grade" ref="grade"></constructor-arg>
+    </bean>
+    <bean id="grade" class="com.jy.Grade">
+        <constructor-arg name="gradeId" value="4"></constructor-arg>
+        <constructor-arg name="gradeName" value="四年级"></constructor-arg>
     </bean>
 
 </beans>
