@@ -4,8 +4,16 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-    <bean id="helloWorld" class="com.jy.HelloWorld">
-        <property name="message" value="Hello World!" />
-    </bean>
+        <bean id="employee" class="com.jy.Employee">
+            <constructor-arg name="empNo" value="002"></constructor-arg>
+            <constructor-arg name="empName" value="小李"></constructor-arg>
+            <constructor-arg name="dept">
+                <!--内部bean-->
+                <bean class="com.jy.Dept">
+                    <constructor-arg name="deptNo" value="005"></constructor-arg>
+                    <constructor-arg name="deptName" value="运维部"></constructor-arg>
+                </bean>
+            </constructor-arg>
+        </bean>
 
 </beans>
