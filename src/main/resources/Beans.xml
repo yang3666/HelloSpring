@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
 
        xsi:schemaLocation="http://www.springframework.org/schema/beans
    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-    <bean id="employee" class="com.jy.Employee" p:empName="小李" p:dept-ref="dept" p:empNo="22222"></bean>
-    <bean id="dept" class="com.jy.Dept" p:deptNo="1111" p:deptName="技术部"></bean>
+    <bean id="employee" class="com.jy.Employee" c:empName="小胡" c:dept-ref="dept" c:empNo="999"></bean>
+    <bean id="dept" class="com.jy.Dept" c:deptNo="2222" c:deptName="测试部"></bean>
 
 </beans>

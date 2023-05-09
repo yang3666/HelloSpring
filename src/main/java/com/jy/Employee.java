@@ -9,20 +9,10 @@ public class Employee {
     //部门信息
     private Dept dept;
 
-    public void setEmpNo(String empNo) {
+    public Employee(String empNo, String empName, Dept dept) {
         this.empNo = empNo;
-    }
-
-    public void setEmpName(String empName) {
         this.empName = empName;
-    }
-
-    public void setDept(Dept dept) {
         this.dept = dept;
-    }
-
-    public Dept getDept() {
-        return dept;
     }
 
     @Override

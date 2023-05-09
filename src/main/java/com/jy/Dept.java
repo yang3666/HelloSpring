@@ -11,13 +11,11 @@ public class Dept {
      */
     private String deptName;
 
-    public void setDeptNo(String deptNo) {
+    public Dept(String deptNo, String deptName) {
         this.deptNo = deptNo;
-    }
-
-    public void setDeptName(String deptName) {
         this.deptName = deptName;
     }
+
     @Override
     public String toString() {
         return "Dept{" +
