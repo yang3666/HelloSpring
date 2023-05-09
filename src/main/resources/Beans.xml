@@ -1,21 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+
        xsi:schemaLocation="http://www.springframework.org/schema/beans
    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-    <bean id="student" class="com.jy.Student">
-        <!--使用 property 元素完成属性注入
-            name: 类中的属性名称，例如 id,name
-            value: 向属性注入的值 例如 学生的 id 为 1，name 为张三
-        -->
-        <property name="id" value="1"></property>
-        <property name="name" value="张三"></property>
-        <property name="grade" ref="grade"></property>
-    </bean>
-    <bean id="grade" class="com.jy.Grade">
-        <property name="gradeId" value="3"></property>
-        <property name="gradeName" value="三年级"></property>
-    </bean>
+    <bean id="employee" class="com.jy.Employee" p:empName="小李" p:dept-ref="dept" p:empNo="22222"></bean>
+    <bean id="dept" class="com.jy.Dept" p:deptNo="1111" p:deptName="技术部"></bean>
 
 </beans>
