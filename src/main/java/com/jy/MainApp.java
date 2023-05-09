@@ -12,10 +12,10 @@ public class MainApp {
     public static void main(String[] args) {
         //获取 ApplicationContext 容器
         ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
-        //获取名为 student 的 Bean
-        Student student = context.getBean("student", Student.class);
+        //获取名为 employee 的 Bean
+        Employee employee = context.getBean("employee", Employee.class);
         //通过日志打印学生信息
-        LOGGER.info(student.toString());
+        LOGGER.info(employee.toString());
     }
 
 }
