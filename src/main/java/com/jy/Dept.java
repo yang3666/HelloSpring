@@ -3,13 +3,15 @@ package com.jy;
 public class Dept {
 
     //部门编号
-    private  String deptNo;
+    private String deptNo;
     //部门名称
-    private  String deptName;
+    private String deptName;
 
-    public  Dept(String deptNo, String deptName) {
-        this .deptNo = deptNo;
-        this .deptName = deptName;
+    public void setDeptNo(String deptNo) {
+        this.deptNo = deptNo;
+    }
+    public void setDeptName(String deptName) {
+        this.deptName = deptName;
     }
 
     @Override
