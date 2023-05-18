@@ -4,8 +4,8 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-    <bean id="helloWorld" class="com.jy.HelloWorld">
-        <property name="message" value="Hello World!" />
+    <bean id="singletonBean" class="com.jy.SingletonBean" scope="singleton">
+        <property name="str" value="C语言中文网"></property>
     </bean>
 
 </beans>
