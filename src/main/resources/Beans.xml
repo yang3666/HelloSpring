@@ -4,8 +4,13 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-    <bean id="helloWorld" class="com.jy.HelloWorld">
-        <property name="message" value="Hello World!" />
+    <bean id="animal" class="com.jy.Animal">
+        <property name="name" value="动物"></property>
+        <property name="age" value="10"></property>
+    </bean>
+    <bean id="dog" class="com.jy.Dog" parent="animal">
+        <property name="name" value="小狗"></property>
+        <property name="call" value="汪汪汪……"></property>
     </bean>
 
 </beans>
