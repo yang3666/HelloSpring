@@ -14,10 +14,15 @@ public class MainApp {
     public static void main(String[] args) {
        //获取ApplicationContext容器
         ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
-        SingletonBean singletonBean = context.getBean("singletonBean", SingletonBean.class);
-        SingletonBean singletonBean2 = context.getBean("singletonBean", SingletonBean.class);
-        System.out.println(singletonBean);
-        System.out.println(singletonBean2);
+//        SingletonBean singletonBean = context.getBean("singletonBean", SingletonBean.class);
+//        SingletonBean singletonBean2 = context.getBean("singletonBean", SingletonBean.class);
+//        System.out.println(singletonBean);
+//        System.out.println(singletonBean2);
+
+        PrototypeBean prototypeBean = context.getBean("prototypeBean", PrototypeBean.class);
+        PrototypeBean prototypeBean2 = context.getBean("prototypeBean", PrototypeBean.class);
+        System.out.println(prototypeBean);
+        System.out.println(prototypeBean2);
     }
 
 }

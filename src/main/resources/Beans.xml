@@ -3,9 +3,12 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
-
+    <!--单例模式 singleton-->
     <bean id="singletonBean" class="com.jy.SingletonBean" scope="singleton">
         <property name="str" value="C语言中文网"></property>
     </bean>
-
+    <!--原型模式 prototype-->
+    <bean id="prototypeBean" class="com.jy.PrototypeBean" scope="prototype">
+        <property name="str" value="c.biancheng.net"></property>
+    </bean>
 </beans>
