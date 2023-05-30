@@ -4,7 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-    <bean id="animal" class="com.jy.Animal">
+    <bean id="animal" abstract="true">
         <property name="name" value="动物"></property>
         <property name="age" value="10"></property>
     </bean>
