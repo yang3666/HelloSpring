@@ -11,5 +11,4 @@ public class MainApp {
         Dog dog = context.getBean("dog", Dog.class);
         System.out.println(dog);
     }
-
 }
