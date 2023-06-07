@@ -2,10 +2,75 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd" default-autowire="byType">
 
-    <bean id="helloWorld" class="com.jy.HelloWorld">
-        <property name="message" value="Hello World!" />
+<!--    不使用自动装配（autowire="no"）-->
+<!--    <bean id="dept" class="com.jy.Dept">-->
+<!--        <property name="deptNo" value="1"></property>-->
+<!--        <property name="deptName" value="技术部"></property>-->
+<!--    </bean>-->
+<!--    <bean id="employee" class="com.jy.Employee" autowire="no">-->
+<!--        <property name="empNo" value="002"></property>-->
+<!--        <property name="empName" value="小郭"></property>-->
+<!--        <property name="dept" ref="dept"></property>-->
+<!--    </bean>-->
+
+
+<!--    按名称自动装配（autowire="byName"）-->
+<!--    <bean id="dept" class="com.jy.Dept">-->
+<!--        <property name="deptNo" value="1"></property>-->
+<!--        <property name="deptName" value="技术部"></property>-->
+<!--    </bean>-->
+<!--    <bean id="employee" class="com.jy.Employee" autowire="byName">-->
+<!--        <property name="empNo" value="002"></property>-->
+<!--        <property name="empName" value="小郭"></property>-->
+<!--    </bean>-->
+
+<!--    按名称自动装配，将员工Bean的id修改为dept2-->
+<!--    <bean id="dept2" class="com.jy.Dept">-->
+<!--        <property name="deptNo" value="1"></property>-->
+<!--        <property name="deptName" value="技术部"></property>-->
+<!--    </bean>-->
+<!--    <bean id="employee" class="com.jy.Employee" autowire="byName">-->
+<!--        <property name="empNo" value="002"></property>-->
+<!--        <property name="empName" value="小郭"></property>-->
+<!--    </bean>-->
+
+<!--&lt;!&ndash;    按类型自动装配（autowire="byType"）&ndash;&gt;-->
+<!--    <bean id="dept2" class="com.jy.Dept">-->
+<!--        <property name="deptNo" value="1"></property>-->
+<!--        <property name="deptName" value="技术部"></property>-->
+<!--    </bean>-->
+<!--    <bean id="employee" class="com.jy.Employee" autowire="byType">-->
+<!--        <property name="empNo" value="002"></property>-->
+<!--        <property name="empName" value="小郭"></property>-->
+<!--    </bean>-->
+<!--&lt;!&ndash;    如果存在多个相同类型的bean，则注入失败，并引发异常&ndash;&gt;-->
+<!--    <bean id="dept" class="com.jy.Dept">-->
+<!--        <property name="deptNo" value="02"></property>-->
+<!--        <property name="deptName" value="运维部"></property>-->
+<!--    </bean>-->
+
+
+<!--    构造函数自动装配（autowire="constructor"）-->
+<!--    <bean id="dept2" class="com.jy.Dept">-->
+<!--        <constructor-arg name="deptNo" value="1"></constructor-arg>-->
+<!--        <constructor-arg name="deptName" value="技术部"></constructor-arg>-->
+<!--    </bean>-->
+<!--    <bean id="employee" class="com.jy.Employee" autowire="constructor">-->
+<!--        <constructor-arg name="empNo" value="002"></constructor-arg>-->
+<!--        <constructor-arg name="empName" value="小郭"></constructor-arg>-->
+<!--    </bean>-->
+
+
+<!--    默认的自动装配模式（autowire="default"）注意根元素有个default-autowire属性-->
+    <bean id="dept2" class="com.jy.Dept">
+        <property name="deptNo" value="1"></property>
+        <property name="deptName" value="技术部"></property>
+    </bean>
+    <bean id="employee" class="com.jy.Employee" autowire="default">
+        <property name="empNo" value="002"></property>
+        <property name="empName" value="小郭"></property>
     </bean>
 
 </beans>
