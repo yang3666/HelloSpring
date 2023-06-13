@@ -1,26 +1,49 @@
 package com.jy;
 
-import org.springframework.beans.factory.BeanFactory;
+import com.jy.dao.OrderDao;
+import com.jy.dao.UserDao;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 public class MainApp {
 
     public static void main(String[] args) {
-        /**
-         * 使用BeanFactory获取Helloworld对象
-         */
-//        ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
-//        HelloWorld obj = context.getBean("helloWorld",HelloWorld.class);
-//        obj.getMessage();
+        //获取 ApplicationContext 容器
+        ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
+        //获取代理对象
+        UserDao userDao = context.getBean("userDaoProxy", UserDao.class);
+        //调用 UserDao 中的各个方法
+        userDao.add();
+        userDao.delete();
+        userDao.get();
+        userDao.modify();
 
-        /**
-         * 使用 FileSystemXmlApplicationContext 加载指定路径下的配置文件 Bean.xml
-         */
-        BeanFactory context = new FileSystemXmlApplicationContext("D:\\eclipe workspace\\spring workspace\\HelloSpring\\src\\Beans.xml");
-        HelloWorld obj = context.getBean("helloWorld", HelloWorld.class);
-        obj.getMessage();
+        System.out.println("环绕增强================");
+        OrderDao orderDao = context.getBean("orderDaoProxy", OrderDao.class);
+        orderDao.add();
+        orderDao.adds();
+        orderDao.delete();
+        orderDao.get();
+        orderDao.modify();
+
+        System.out.println("自动代理================");
+        //获取 ApplicationContext 容器
+        ApplicationContext context1 = new ClassPathXmlApplicationContext("Beans2.xml");
+        //获取代理对象
+        UserDao userDao1 = context1.getBean("userDao", UserDao.class);
+        //获取代理对象
+        OrderDao orderDao1 = context1.getBean("orderDao", OrderDao.class);
+        //调用 UserDao 中的各个方法
+        userDao1.add();
+        userDao1.delete();
+        userDao1.modify();
+        userDao1.get();
+        //调用 OrderDao 中的各个方法
+        orderDao1.add();
+        orderDao1.adds();
+        orderDao1.delete();
+        orderDao1.get();
+        orderDao1.modify();
     }
 
 }
