@@ -1,26 +1,27 @@
 package com.jy;
 
-import org.springframework.beans.factory.BeanFactory;
+import com.jy.entity.Order;
+import com.jy.service.OrderService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.context.support.FileSystemXmlApplicationContext;
+
+import java.math.BigDecimal;
 
 public class MainApp {
-
     public static void main(String[] args) {
-        /**
-         * 使用BeanFactory获取Helloworld对象
-         */
-//        ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
-//        HelloWorld obj = context.getBean("helloWorld",HelloWorld.class);
-//        obj.getMessage();
-
-        /**
-         * 使用 FileSystemXmlApplicationContext 加载指定路径下的配置文件 Bean.xml
-         */
-        BeanFactory context = new FileSystemXmlApplicationContext("D:\\eclipe workspace\\spring workspace\\HelloSpring\\src\\Beans.xml");
-        HelloWorld obj = context.getBean("helloWorld", HelloWorld.class);
-        obj.getMessage();
+        ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
+        OrderService orderService = context.getBean("orderService", OrderService.class);
+        Order order = new Order();
+        //设置商品 id
+        order.setProductId("1");
+        //商品数量为 30
+        order.setCount(30);
+        //商品金额为 600
+        order.setMoney(new BigDecimal(600));
+        //设置用户 id
+        order.setUserId("1");
+        //订单状态为未完成
+        order.setStatus(0);
+        orderService.createOrder(order);
     }
-
 }
