@@ -9,6 +9,9 @@ import com.jy.entity.Storage;
 import com.jy.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -21,6 +24,12 @@ public class OrderServiceImpl implements OrderService {
     private AccountDao accountDao;
     @Autowired
     private StorageDao storageDao;
+    /**
+     * 在方法上使用 @Transactional 注解，
+     *
+     * @param order
+     */
+    @Transactional(isolation = Isolation.DEFAULT, propagation = Propagation.REQUIRED, timeout = 10, readOnly = false)
     @Override
     public void createOrder(Order order) {
         //自动生成订单 id

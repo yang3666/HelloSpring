@@ -13,6 +13,8 @@
         http://www.springframework.org/schema/tx
         http://www.springframework.org/schema/tx/spring-tx.xsd">
 
+    <!--开启注解事务-->
+    <tx:annotation-driven/>
     <!--开启组件扫描-->
     <context:component-scan base-package="com.jy"></context:component-scan>
     <!--引入 jdbc.properties 中的配置-->
@@ -40,20 +42,4 @@
           class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource"></property>
     </bean>
-    <!--配置通知-->
-    <tx:advice id="tx-advice">
-        <!--配置事务参数-->
-        <tx:attributes>
-            <!--name 指定哪些方法上添加事务-->
-            <tx:method name="create*" propagation="REQUIRED" isolation="DEFAULT" read-only="false" timeout="10"/>
-        </tx:attributes>
-    </tx:advice>
-
-    <!--配置切点和切面-->
-    <aop:config>
-        <!--配置切点-->
-        <aop:pointcut id="tx-pt" expression="execution(* com.jy.service.impl.OrderServiceImpl.*(..))"/>
-        <!--配置切面-->
-        <aop:advisor advice-ref="tx-advice" pointcut-ref="tx-pt"></aop:advisor>
-    </aop:config>
 </beans>
